@@ -13,7 +13,7 @@ export class Invention
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  //title = 'app';
+  title = 'Inventions Hub';
 
   invention:Invention ={
     name: 'C Programming Language',
