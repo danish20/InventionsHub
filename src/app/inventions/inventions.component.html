@@ -1,0 +1,41 @@
+<ul class="list-group">
+<li class="list-group-item" *ngFor = "let i of inventions">
+
+    <div class="card" style="width: 18rem;">
+        <img class="card-img-top" width="180" height="180" src={{i.image}} alt="Invention Icon">
+        <div class="card-body">
+          <h5 class="card-title">{{i.name}} </h5>
+          <h6 class="card-subtitle mb-2 text-muted">{{i.inventor}}</h6>
+          <p class="card-text">{{i.year}}</p>  
+        </div>
+    </div>
+  
+</li>
+</ul>
+
+<hr>
+<div class="form">
+
+    
+    <div class="form-group">
+      <input class="form-control" [(ngModel)]="imageModel" placeholder="Enter Invention Icon Image Link">
+    </div>  
+
+<label>{{nameModel}}</label>
+<div class="form-group">
+  <input class="form-control" [(ngModel)]="nameModel" placeholder="Enter Invention Name">
+</div>
+
+<label>{{inventorModel}}</label>
+<div class="form-group">
+  <input class="form-control" [(ngModel)]="inventorModel" placeholder="Enter Inventor's Name">
+</div>
+
+<label>{{yearModel}}</label>
+<div class="form-group">
+  <input class="form-control"[(ngModel)]="yearModel" placeholder="Enter Invention year">
+</div>
+</div>
+<br>
+
+<button class="btn btn-danger" (click)="createInvention()">Add New Invention</button>
