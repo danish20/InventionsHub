@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-
+import {InventionsComponent} from './inventions/inventions.component'
 
 @Component({
   selector: 'app-root',
