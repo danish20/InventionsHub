@@ -7,6 +7,7 @@
           <h5 class="card-title">{{i.name}} </h5>
           <h6 class="card-subtitle mb-2 text-muted">{{i.inventor}}</h6>
           <p class="card-text">{{i.year}}</p>  
+          <a [routerLink]="" class="card-link" (click)="details(i.id)">Show Details</a> 
         </div>
     </div>
   
@@ -35,7 +36,12 @@
 <div class="form-group">
   <input class="form-control"[(ngModel)]="yearModel" placeholder="Enter Invention year">
 </div>
+
+<label>{{detailModel}}</label>
+<div class="form-group">
+  <input class="form-control" [(ngModel)]="detailModel" placeholder="Enter Invention Details">
+</div>
+
 </div>
 <br>
-
 <button class="btn btn-danger" (click)="createInvention()">Add New Invention</button>

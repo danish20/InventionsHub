@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
 import {Invention} from './invention.class'
 import {InventionsService} from './inventions.service'
 
@@ -15,14 +16,20 @@ export class InventionsComponent implements OnInit {
   yearModel:String;
   imageModel:String;
   inventions:Invention[];
+  detailModel:String;
+  totalInventions:number;
 
-  constructor(private inventionsService:InventionsService) {
+  constructor(
+    private router:Router,
+    private inventionsService:InventionsService) {
 
     this.nameModel = '';
     this.inventorModel = '';
     this.yearModel = '';
+    this.detailModel = '';
 
     this.inventions = inventionsService.getInventions();
+    this.totalInventions = this.inventions.length;
 
    }
 
@@ -31,14 +38,28 @@ export class InventionsComponent implements OnInit {
 
   createInvention()
   {
+    this.totalInventions+=1;
     let newInvention: Invention ={
+      id: this.getId(),
       name: this.nameModel,
+      details: this.detailModel,
       inventor: this.inventorModel,
       year: this.yearModel,
       image: this.imageModel
     };
 
     this.inventions.push(newInvention);
+    this.nameModel = this.yearModel = this.inventorModel = this.detailModel = ''; 
+  }
+
+  details(id)
+  {
+    this.router.navigate(['/details',id]);
+  }
+
+  getId()
+  {
+    return this.totalInventions;
   }
 
 }
